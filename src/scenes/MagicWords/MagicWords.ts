@@ -28,8 +28,8 @@ export class MagicWords {
     this.load()
 
     this.backButton = createBackButton(() => {
-      this.destroy()
       this.onClose()
+      this.destroy()
     })
 
     if (window.innerWidth <= 480) this.setupTouchScroll()
