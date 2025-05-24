@@ -1,0 +1,23 @@
+## Notes
+I may have overcomplicated some parts and made suboptimal choices due to my limited experience with PixiJS. I also think that if there is a big project it's better to use FSD arcgitecture, the approach I implemented works with small projects only. Overall, the task was very interesting and fun, and I truly enjoyed working on it! :)
+
+# Softgames Test Assignment
+
+This project contains the implementation of three small games using [PixiJS v7](https://pixijs.com/). The goal was to build engaging, performant, and visually clear mini-games using TypeScript and PixiJS.
+
+## Games
+
+- **Ace of Shadows** — A card stacking animation that continuously moves cards from one stack to another with smooth transitions.
+- **Magic Words** — An interactive word-matching puzzle game with scrolling and dynamic dialogue display.
+- **Phoenix Flame** — (To be implemented or extended)
+
+## Technologies
+
+- [PixiJS v7](https://pixijs.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+
+## Launching
+
+pnpm i
+pnpm dev
