@@ -15,7 +15,6 @@ export default [
         project: './tsconfig.json',
       },
       globals: {
-        // например, для браузера
         window: 'readonly',
         document: 'readonly',
       },
