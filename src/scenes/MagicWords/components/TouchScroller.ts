@@ -7,14 +7,21 @@ export class TouchScroller {
   private minY = 0
   private maxY = 0
 
+  private container: Container
+  private renderer: Renderer
+
   constructor(
-    private container: Container,
-    private renderer: Renderer,
-    private padding: number,
-    private contentHeight: number,
+    container: Container,
+    renderer: Renderer,
+    padding: number,
+    contentHeight: number,
   ) {
+    this.container = container
+    this.renderer = renderer
+
     this.maxY = padding
     this.minY = padding + renderer.height - contentHeight
+
     this.setupListeners()
   }
 
