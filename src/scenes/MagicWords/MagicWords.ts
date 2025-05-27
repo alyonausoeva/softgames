@@ -1,4 +1,4 @@
-import { Application, Container, Graphics, Texture } from 'pixi.js'
+import { Application, Container, Graphics, Texture, Renderer } from 'pixi.js'
 import { TouchScroller } from './components/TouchScroller'
 import { DialogueRenderer } from './components/DialogueRenderer'
 import { createBackButton } from '../components/BackButton'
@@ -20,7 +20,13 @@ export class MagicWords {
   private dialogueRenderer: DialogueRenderer
   private backButton: HTMLButtonElement | null = null
 
-  constructor(private app: Application, private onClose: () => void) {
+  private app: Application
+  private onClose: () => void
+
+  constructor(app: Application, onClose: () => void) {
+    this.app = app
+    this.onClose = onClose
+
     this.app.stage.addChild(this.container)
     this.dialogueRenderer = new DialogueRenderer(this.container, this.emojiMap, this.avatarMap)
     this.resize()
@@ -75,7 +81,12 @@ export class MagicWords {
   }
 
   private setupTouchScroll() {
-    this.touchScroller = new TouchScroller(this.container, this.app.renderer, this.padding, this.contentHeight)
+    this.touchScroller = new TouchScroller(
+      this.container,
+      this.app.renderer as unknown as Renderer, 
+      this.padding,
+      this.contentHeight
+    )
   }
 
   public destroy() {
