@@ -10,11 +10,19 @@ export class DialogueRenderer {
   private lineHeight = 28
   private padding = 20
 
+  private container: Container
+  private emojiMap: Map<string, Texture>
+  private avatarMap: Map<string, Texture>
+
   constructor(
-    private container: Container,
-    private emojiMap: Map<string, Texture>,
-    private avatarMap: Map<string, Texture>,
-  ) {}
+    container: Container,
+    emojiMap: Map<string, Texture>,
+    avatarMap: Map<string, Texture>,
+  ) {
+    this.container = container
+    this.emojiMap = emojiMap
+    this.avatarMap = avatarMap
+  }
 
   public render(dialogue: DialogueEntry[], maxWidth: number, rendererWidth: number): number {
     this.container.removeChildren()
@@ -25,7 +33,6 @@ export class DialogueRenderer {
       const lineCont = new Container()
       lineCont.y = y
 
-      // Аватар
       const avatar = this.avatarMap.get(name)
       if (avatar) {
         const spr = new Sprite(avatar)
@@ -33,12 +40,10 @@ export class DialogueRenderer {
         lineCont.addChild(spr)
       }
 
-      // Имя
       const nameText = new Text(name + ': ', this.nameStyle)
       nameText.x = this.avatarSize + this.padding
       lineCont.addChild(nameText)
 
-      // Текст + эмодзи
       let cursorX = this.avatarSize + this.padding + nameText.width
       let cursorY = 0
       let currentLine = new Container()
