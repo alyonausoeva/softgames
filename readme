@@ -21,3 +21,6 @@ This project contains the implementation of three small games using [PixiJS v7](
 
 pnpm i
 pnpm dev
+
+## Hosted web version
+https://softgames-c374.vercel.app/
